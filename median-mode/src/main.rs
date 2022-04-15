@@ -13,8 +13,8 @@ fn main() {
     let mut occurrences = HashMap::new();
 
     for number in numbers {
-        let occurence = occurrences.entry(number).or_insert(0);
-        *occurence += 1;
+        let occurrence = occurrences.entry(number).or_insert(0);
+        *occurrence += 1;
     }
 
     println!("occurrences: {occurrences:?}");
