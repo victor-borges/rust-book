@@ -1,5 +1,5 @@
 fn main() {
-    let original_string = "Ten. Million. Questions. Let's celebrate all we've done together. Whose pig is this? It's his'.";
+    let original_string = "Kss. Ten. Million. Questions. Let's celebrate all we've done together. Whose pig is this? It's his'.";
     let mut new_words = Vec::new();
 
     let mut words = Vec::new();
@@ -40,18 +40,21 @@ fn main() {
                 while let Some(next) = chars.next() {
                     if next.is_consonant() {
                         new_word.push_str(&next.to_lowercase().to_string());
-                    } else {
-                        let vowel = if is_uppercase {
-                            next.to_uppercase().to_string()
-                        } else {
-                            next.to_string()
-                        };
-
-                        let remainder = chars.to_owned().collect::<String>();
-                        new_words.push(format!("{vowel}{remainder}{new_word}ay"));
-                        continue 'words;
+                        continue
                     }
+
+                    let vowel = if is_uppercase {
+                        next.to_uppercase().to_string()
+                    } else {
+                        next.to_string()
+                    };
+
+                    let remainder = chars.to_owned().collect::<String>();
+                    new_words.push(format!("{vowel}{remainder}{new_word}ay"));
+                    continue 'words;
                 }
+
+                new_words.push(format!("{word}ay"));
             }
         }
     }
