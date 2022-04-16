@@ -75,6 +75,6 @@ impl RomanceChar for char {
     }
 
     fn is_consonant(&self) -> bool {
-        !self.is_vowel()
+        self.is_ascii_alphabetic() && !self.is_vowel()
     }
 }
